@@ -98,6 +98,15 @@ SELECT * FROM registrations;
 SELECT * FROM tickets;
 SELECT * FROM payments;
 SELECT * FROM feedbacks;
+SELECT event_id, event_name, event_date, start_time, end_time
+FROM events;
+
+
+-- SHOW all events and their venues
+SELECT e.event_name, v.venue_name, v.location
+FROM events e
+JOIN venues v ON e.venue_id = v.venue_id;
+
 
 -- See all events with organizer name
 SELECT e.title, e.event_date, u.name AS organizer
