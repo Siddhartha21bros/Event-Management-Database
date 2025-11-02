@@ -98,14 +98,18 @@ SELECT * FROM registrations;
 SELECT * FROM tickets;
 SELECT * FROM payments;
 SELECT * FROM feedbacks;
-SELECT event_id, event_name, event_date, start_time, end_time
+SELECT event_id, title, event_date, capacity
 FROM events;
 
+-- Show attendees
+SELECT name, email, role
+FROM users
+WHERE role = 'attendee';
 
--- SHOW all events and their venues
-SELECT e.event_name, v.venue_name, v.location
-FROM events e
-JOIN venues v ON e.venue_id = v.venue_id;
+-- shoe events that have alreay happened
+SELECT title, event_date
+FROM events
+WHERE event_date < CURDATE();
 
 
 -- See all events with organizer name
